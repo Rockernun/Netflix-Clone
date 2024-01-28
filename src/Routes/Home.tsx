@@ -66,6 +66,19 @@ const Box = styled(motion.div)<{bgPhoto: string}>`
   }
 `;
 
+const Info = styled(motion.div)`
+  padding: 10px;
+  opacity: 0;
+  background-color: ${props=>props.theme.black.lighter};
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  h4 {
+    text-align: center;
+    font-size: 8px;
+  }
+`;
+
 const rowVariants = {
   hidden: {
     x: window.outerWidth + 5,
@@ -92,6 +105,17 @@ const BoxVariatns = {
     },
   },
 };
+
+const infoVariants = {
+  hover:{
+    opacity: 1,
+    transition: {
+      delay: 0.4,
+      duration: 0.2,
+      type: "tween",
+    },
+  }
+}
 
 const offset = 6;
 
@@ -140,7 +164,9 @@ function Home() {
           transition={{type: "tween"}}
           bgPhoto={makeImagePath(movie.backdrop_path, "w500")}
           >
-
+            <Info variants={infoVariants}>
+              <h4>{movie.title}</h4>
+            </Info>
           </Box>
           ))}
         </Row>
