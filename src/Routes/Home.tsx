@@ -58,6 +58,12 @@ const Box = styled(motion.div)<{bgPhoto: string}>`
   background-size: cover;
   background-position: center center;
   font-size: 64px;
+  &:first-child {
+    transform-origin: center left;
+  }
+  &:last-child {
+    transform-origin: center right;
+  }
 `;
 
 const rowVariants = {
@@ -69,6 +75,21 @@ const rowVariants = {
   },
   exit: {
     x: -window.outerWidth - 5,
+  },
+};
+
+const BoxVariatns = {
+  normal: {
+    scale: 1,
+  },
+  hover: {
+    scale: 1.3,
+    y: -30,
+    transition: {
+      delay: 0.4,
+      duration: 0.2,
+      type: "tween",
+    },
   },
 };
 
@@ -113,6 +134,10 @@ function Home() {
           .map((movie) => (
           <Box 
           key={movie.id} 
+          whileHover="hover"
+          initial="normal"
+          variants={BoxVariatns}
+          transition={{type: "tween"}}
           bgPhoto={makeImagePath(movie.backdrop_path, "w500")}
           >
 
