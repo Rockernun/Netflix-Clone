@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, HashRouter } from "react-router-dom";
 
 import Tv from "./Routes/Tv";
 import Home from "./Routes/Home";
@@ -8,7 +8,7 @@ import Header from "./Components/Header";
 
 function App() {
   return (
-    <Router>
+  <Router>
       <Header />
       <Routes>
         <Route path="/tv" element={<Tv />}></Route>
@@ -16,7 +16,7 @@ function App() {
         <Route path="/*" element={<Home />}></Route>
       </Routes>
     </Router>
-  )
+  );
 }
 
 export default App;

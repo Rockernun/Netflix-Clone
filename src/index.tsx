@@ -80,9 +80,7 @@ ReactDOM.render(
       <QueryClientProvider client={client}>
       <ThemeProvider theme={theme}>
     <GlobalStyle />
-    <HashRouter  basename={process.env.PUBLIC_URL}>
     <App />
-    </HashRouter>
       </ThemeProvider>
       </QueryClientProvider>
       </RecoilRoot>,
