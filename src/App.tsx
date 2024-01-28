@@ -1,6 +1,8 @@
-import { Route, Routes, BrowserRouter as Router} from "react-router-dom";
-import Home from "./Routes/Home";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Tv from "./Routes/Tv";
+import Home from "./Routes/Home";
 import Search from "./Routes/Search";
 import Header from "./Components/Header";
 
@@ -11,9 +13,7 @@ function App() {
       <Routes>
         <Route path="/tv" element={<Tv />}></Route>
         <Route path="/search" element={<Search />}></Route>
-        <Route path="/*" element={<Home />}>
-          <Route path="movies:id" element={<Home />} />
-        </Route>
+        <Route path="/*" element={<Home />}></Route>
       </Routes>
     </Router>
   )
