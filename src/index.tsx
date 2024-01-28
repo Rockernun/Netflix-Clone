@@ -6,6 +6,7 @@ import App from "./App";
 import { createGlobalStyle } from "styled-components";
 import { theme } from "./theme";
 import {QueryClient, QueryClientProvider} from "react-query";
+import { HashRouter } from "react-router-dom";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
@@ -75,15 +76,15 @@ a {
 const client = new QueryClient();
 
 ReactDOM.render(
-  <React.StrictMode>
     <RecoilRoot>
       <QueryClientProvider client={client}>
       <ThemeProvider theme={theme}>
     <GlobalStyle />
-        <App />
+    <HashRouter  basename={process.env.PUBLIC_URL}>
+    <App />
+    </HashRouter>
       </ThemeProvider>
       </QueryClientProvider>
-      </RecoilRoot>
-  </React.StrictMode>,
+      </RecoilRoot>,
   document.getElementById("root")
 );
