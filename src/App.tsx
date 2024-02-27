@@ -1,22 +1,21 @@
-import React from "react";
-import { HashRouter as Router, Routes, Route, HashRouter } from "react-router-dom";
-
-import Tv from "./Routes/Tv";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./Routes/Home";
+import Tv from "./Routes/Tv";
 import Search from "./Routes/Search";
 import Header from "./Components/Header";
 
 function App() {
   return (
-  <Router>
+    <HashRouter>
       <Header />
       <Routes>
         <Route path="/tv" element={<Tv />}></Route>
         <Route path="/search" element={<Search />}></Route>
         <Route path="/*" element={<Home />}></Route>
       </Routes>
-    </Router>
+    </HashRouter>
   );
 }
 
 export default App;
+
